@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     // Smoothing algorithm was taken from Arduino's smoothing as referenced in Prof
-    // sample code
+    // sample code: https://www.arduino.cc/en/Tutorial/Smoothing
     public double smoothValue(double value) {
         if (_smoothingBufferFull) {
             // subtract the last reading:
@@ -151,7 +151,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         return _smoothingTotal/_smoothingIndex;
     }
 
-    // Peak and Step detection referenced from
+    // Peak and Step detection referenced from Martin Mladenov and Michael Mock's paper titled
+    // "A Step Counter Service for Java-Enabled Devices Using a Built-in Accelerometer
     public void peakDetection() {
         double fs = 0, bs = 0; // Forward Slope, Backward Slope
 
